@@ -37,7 +37,7 @@ export const AuthProvider = ({children}) => {
 
             const ex=String(error)
             
-            alert(ex.replace('AppwriteException: Invalid credentials. ', ''))
+            alert(ex.replace('AppwriteException: ', ''))
             console.error(error)
         }
     }

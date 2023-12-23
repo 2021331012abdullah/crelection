@@ -262,6 +262,15 @@ input[type='radio'] {
   font-size: large;
   
 }
+.redtext:focus
+{
+  color: rgb(255, 203, 46);
+  background-color: rgba(0,0,0,1000);
+  border: 0cm;
+  font-family: 'SolaimanLipi', sans-serif;
+  font-size: large;
+  
+}
 
 .center-align{
   text-align: center;

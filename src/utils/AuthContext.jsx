@@ -34,6 +34,10 @@ export const AuthProvider = ({children}) => {
             setUser(accountDetails)
             navigate('/')
         }catch(error){
+
+            const ex=String(error)
+            
+            alert(ex.replace('AppwriteException: Invalid credentials. ', ''))
             console.error(error)
         }
     }
@@ -62,6 +66,10 @@ export const AuthProvider = ({children}) => {
             setUser(accountDetails)
             navigate('/')
         }catch(error){
+
+            const ex=String(error)
+            
+            alert(ex.replace('AppwriteException: ', ''))
             console.error(error)
         }
     }

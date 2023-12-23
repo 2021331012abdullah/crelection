@@ -78,6 +78,9 @@ const RegisterPage = () => {
         </form>
 
         <p>Already have an account? Login <Link to="/login">here</Link></p>
+        <br/>
+            <div className='center-align'><Link to="/guest"><h4>Continue as a guest</h4></Link></div>
+            
       </div>
     </div>
   )

@@ -1,20 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import client, { databases, DATABASE_ID, COLLECTION_ID_MESSAGES } from '../appwriteConfig'
-import { ID, Query, Permission, Role} from 'appwrite';
-import Header from '../components/Header';
-import { useAuth } from '../utils/AuthContext';
-import {Trash2} from 'react-feather'
+import {Query} from 'appwrite';
+import { useNavigate } from 'react-router-dom';
 import santoshImage from '../img/santosh.jpg'
 import sayeedImage from '../img/sayeed.jpg'
 const sz=100
-const Room = () => {
-    const [messageBody, setMessageBody] = useState('')
-    const [choice, setChoice] = useState("santosh")
+const Guest = () => {
+    const navigate = useNavigate()
     const [voted, setVoted] = useState(null)
     const [cnt1, setCnt1] = useState(0)
     const [cnt2, setCnt2] = useState(0)
     const [messages, setMessages] = useState([])
-    const {user, handleLogout} = useAuth()
 
 
     useEffect(() => {
@@ -51,8 +47,7 @@ const Room = () => {
         )
         
         try{
-        const resp2 = await databases.getDocument(DATABASE_ID, COLLECTION_ID_MESSAGES, user.$id);
-        console.log(resp2)
+        
         const resp3 = await databases.getDocument(DATABASE_ID, 'candidates', 'santosh');
         console.log(resp3)
         const resp4 = await databases.getDocument(DATABASE_ID,'candidates', 'sayeed');
@@ -63,7 +58,7 @@ const Room = () => {
         }
         catch (e)
         {
-            setVoted(0)
+            console.loge(e);
         }
         setMessages(response.documents)
         
@@ -73,52 +68,9 @@ const Room = () => {
 
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-
-        const permissions = [
-            Permission.write(Role.user(user.$id)),
-          ]
-
-        const payload = {
-            id:user.$id,
-            username:user.name,
-      
-        }
-        const present = await databases.getDocument(DATABASE_ID, 'candidates', choice);
-        console.log(present);
-        const payload2 = {
-            count:present.count+1
-      
-        }
-        const response = await databases.createDocument(
-                DATABASE_ID, 
-                COLLECTION_ID_MESSAGES, 
-                user.$id, 
-                payload,
-                permissions
-            )
-            
-
-
-            const response2 = await databases.updateDocument(
-                DATABASE_ID, 
-                'candidates',
-                choice,
-                payload2,
-                permissions
-            )
-            window.location.reload(false);
-            
-
-    }
-
-
     
-
   return (
     <main className="container">
-        <Header/>
         <div className="room--container">
             
         <div>
@@ -137,39 +89,23 @@ const Room = () => {
                     
                     
                     <br/>
+                    <div className='center-align'><div className="field--wrapper">
+
+<input 
+type="submit"
+value="Login to Vote"
+className="btn btn--lg btn--main"
+onClick={()=>{navigate('/login')}}
+/>
+
+</div></div>
                 
                 <br />
-                <p>✅ আপনি ইতোমধ্যে একবার ভোট দিয়েছেন</p></>): voted===0?
-        (<div> <div className='message--header'>
-            {/* The first radio button is checked by default using the defaultChecked attribute */}
-            <label><input type='radio' name="favourite" value="santosh" defaultChecked onChange={()=>{setChoice("santosh"); console.log(choice);}}></input><img src={santoshImage} width={sz} height={sz} alt="santosh" /></label>
-            <label><input type='radio' name="favourite" value="sayeed" onChange={()=>{setChoice("sayeed"); console.log(choice);}}></input><img src={sayeedImage} width={sz} height={sz} alt="sayeed" /></label><br/>
-            <span ><input className="button-5" type="submit" value="ভোট দিন" onClick={(e)=>{handleSubmit(e)}}></input></span>
-            <br/>
-            
-        </div>
-        <br></br>
-            </div>
-        
-        ):(<><p>লোড হচ্ছে... অনুগ্রহপূর্বক অপেক্ষা করুন</p></>)
+                <p>You are viewing this page as a guest!</p></>):(<><p>লোড হচ্ছে... অনুগ্রহপূর্বক অপেক্ষা করুন</p></>)
             }
         </div>
 
-        {/* <form id="message--form" onSubmit={handleSubmit}>
-            <div>
-                <textarea 
-                    required 
-                    maxlength="250"
-                    placeholder="Say something..." 
-                    onChange={(e) => {setMessageBody(e.target.value)}}
-                    value={messageBody}
-                    ></textarea>
-            </div>
-
-            <div className="send-btn--wrapper">
-                <input className="btn btn--secondary" type="submit" value="send"/>
-            </div>
-        </form> */}
+       
         
 <br/>
         <div>
@@ -203,4 +139,4 @@ const Room = () => {
   )
 }
 
-export default Room
+export default Guest

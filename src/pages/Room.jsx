@@ -98,7 +98,7 @@ const Room = () => {
                 payload,
                 permissions
             )
-            window.location.reload(false);
+            setVoted(1);
 
 
             const response2 = await databases.updateDocument(
@@ -139,7 +139,7 @@ const Room = () => {
                     <br/>
                 
                 <br />
-                <p>✅ আপনি ভোট দিয়েছেন </p></>): voted===0?
+                <p>✅ আপনি ইতোমধ্যে একবার ভোট দিয়েছেন</p></>): voted===0?
         (<div> <div className='message--header'>
             {/* The first radio button is checked by default using the defaultChecked attribute */}
             <label><input type='radio' name="favourite" value="santosh" defaultChecked onChange={()=>{setChoice("santosh"); console.log(choice);}}></input><img src={santoshImage} width={sz} height={sz} alt="santosh" /></label>

@@ -98,7 +98,7 @@ const Room = () => {
                 payload,
                 permissions
             )
-            setVoted(1);
+            
 
 
             const response2 = await databases.updateDocument(
@@ -133,7 +133,7 @@ const Room = () => {
                     <br/>
                     </div >
                     <br/>
-                    <div className='center-align'>Final result will be announced at 5PM</div>
+                    <div className='center-align'>Final result will be announced at 10PM</div>
                     
                     
                     <br/>

@@ -12,7 +12,7 @@ const Header = () => {
             <>
                 <p>স্বাগতম {user.name}</p>
                 <br/> <br/>
-                <div className='center-align'><LogOut className="header--link" onClick={handleLogout}/> <button className='redtext'  onClick={handleLogout}>লগ আউট</button> </div>
+                <div className='center-align-header'><LogOut className="header--link" onClick={handleLogout}/> <button className='redtext'  onClick={handleLogout}>লগ আউট</button> </div>
             </>
         ): (
             <>

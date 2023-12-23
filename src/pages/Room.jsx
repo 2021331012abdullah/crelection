@@ -6,12 +6,11 @@ import { useAuth } from '../utils/AuthContext';
 import {Trash2} from 'react-feather'
 import santoshImage from '../img/santosh.jpg'
 import sayeedImage from '../img/sayeed.jpg'
-const sz=125
-
+const sz=100
 const Room = () => {
     const [messageBody, setMessageBody] = useState('')
     const [choice, setChoice] = useState("santosh")
-    const [voted, setVoted] = useState(0)
+    const [voted, setVoted] = useState(null)
     const [cnt1, setCnt1] = useState(0)
     const [cnt2, setCnt2] = useState(0)
     const [messages, setMessages] = useState([])
@@ -50,6 +49,7 @@ const Room = () => {
                 Query.limit(1000),
             ]
         )
+        
         try{
         const resp2 = await databases.getDocument(DATABASE_ID, COLLECTION_ID_MESSAGES, user.$id);
         console.log(resp2)
@@ -133,13 +133,13 @@ const Room = () => {
                     <br/>
                     </div >
                     <br/>
-                    <div className='center-align'>Final Result will be announced at 5PM</div>
+                    <div className='center-align'>Final result will be announced at 5PM</div>
                     
                     
                     <br/>
                 
                 <br />
-                <p>✅ আপনি ভোট দিয়েছেন </p></>): 
+                <p>✅ আপনি ভোট দিয়েছেন </p></>): voted===0?
         (<div> <div className='message--header'>
             {/* The first radio button is checked by default using the defaultChecked attribute */}
             <label><input type='radio' name="favourite" value="santosh" defaultChecked onChange={()=>{setChoice("santosh"); console.log(choice);}}></input><img src={santoshImage} width={sz} height={sz} alt="santosh" /></label>
@@ -151,7 +151,7 @@ const Room = () => {
         <br></br>
             </div>
         
-        )
+        ):(<></>)
             }
         </div>
 

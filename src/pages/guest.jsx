@@ -49,16 +49,16 @@ const Guest = () => {
         try{
         
         const resp3 = await databases.getDocument(DATABASE_ID, 'candidates', 'santosh');
-        console.log(resp3)
+        
         const resp4 = await databases.getDocument(DATABASE_ID,'candidates', 'sayeed');
-        console.log(resp4)
+        
         setCnt1(resp3.count);
         setCnt2(resp4.count);
         setVoted(1)
         }
         catch (e)
         {
-            console.loge(e);
+            // console.loge(e);
         }
         setMessages(response.documents)
         
@@ -70,6 +70,7 @@ const Guest = () => {
 
     
   return (
+    
     <main className="container">
         <div className="room--container">
             
@@ -101,7 +102,7 @@ onClick={()=>{navigate('/login')}}
 </div></div>
                 
                 <br />
-                <p>You are viewing this page as a guest!</p></>):(<><p>লোড হচ্ছে... অনুগ্রহপূর্বক অপেক্ষা করুন</p></>)
+                <p>You are viewing this page as a guest!</p></>):(<><div class="loader1"></div></>)
             }
         </div>
 
@@ -112,7 +113,7 @@ onClick={()=>{navigate('/login')}}
         <br></br>
             <br></br>
 
-            <h3>Latest Activites</h3>
+            {voted!=null? (<h3>Latest Activites</h3>):(<></>)}
             <br/>
             {messages.map(message => (
                 <div key={message.$id} className={"message--wrapper"}>

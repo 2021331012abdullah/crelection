@@ -52,11 +52,11 @@ const Room = () => {
         
         try{
         const resp2 = await databases.getDocument(DATABASE_ID, COLLECTION_ID_MESSAGES, user.$id);
-        console.log(resp2)
+        
         const resp3 = await databases.getDocument(DATABASE_ID, 'candidates', 'santosh');
-        console.log(resp3)
+        
         const resp4 = await databases.getDocument(DATABASE_ID,'candidates', 'sayeed');
-        console.log(resp4)
+        
         setCnt1(resp3.count);
         setCnt2(resp4.count);
         setVoted(1)
@@ -86,7 +86,7 @@ const Room = () => {
       
         }
         const present = await databases.getDocument(DATABASE_ID, 'candidates', choice);
-        console.log(present);
+        
         const payload2 = {
             count:present.count+1
       
@@ -142,8 +142,8 @@ const Room = () => {
                 <p>✅ আপনি ইতোমধ্যে একবার ভোট দিয়েছেন</p></>): voted===0?
         (<div> <div className='message--header'>
             {/* The first radio button is checked by default using the defaultChecked attribute */}
-            <label><input type='radio' name="favourite" value="santosh" defaultChecked onChange={()=>{setChoice("santosh"); console.log(choice);}}></input><img src={santoshImage} width={sz} height={sz} alt="santosh" /></label>
-            <label><input type='radio' name="favourite" value="sayeed" onChange={()=>{setChoice("sayeed"); console.log(choice);}}></input><img src={sayeedImage} width={sz} height={sz} alt="sayeed" /></label><br/>
+            <label><input type='radio' name="favourite" value="santosh" defaultChecked onChange={()=>{setChoice("santosh"); }}></input><img src={santoshImage} width={sz} height={sz} alt="santosh" /></label>
+            <label><input type='radio' name="favourite" value="sayeed" onChange={()=>{setChoice("sayeed");}}></input><img src={sayeedImage} width={sz} height={sz} alt="sayeed" /></label><br/>
             <span ><input className="button-5" type="submit" value="ভোট দিন" onClick={(e)=>{handleSubmit(e)}}></input></span>
             <br/>
             
@@ -151,32 +151,18 @@ const Room = () => {
         <br></br>
             </div>
         
-        ):(<><p>লোড হচ্ছে... অনুগ্রহপূর্বক অপেক্ষা করুন</p></>)
+        ):(<><div class="loader1"></div></>)
             }
         </div>
 
-        {/* <form id="message--form" onSubmit={handleSubmit}>
-            <div>
-                <textarea 
-                    required 
-                    maxlength="250"
-                    placeholder="Say something..." 
-                    onChange={(e) => {setMessageBody(e.target.value)}}
-                    value={messageBody}
-                    ></textarea>
-            </div>
-
-            <div className="send-btn--wrapper">
-                <input className="btn btn--secondary" type="submit" value="send"/>
-            </div>
-        </form> */}
+       
         
 <br/>
         <div>
         <br></br>
             <br></br>
 
-            <h3>Latest Activites</h3>
+            {voted!=null? (<h3>Latest Activites</h3>):(<></>)}
             <br/>
             {messages.map(message => (
                 <div key={message.$id} className={"message--wrapper"}>

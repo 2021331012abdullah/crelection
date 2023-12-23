@@ -255,7 +255,7 @@ input[type='radio'] {
 
 
 
-.center-align{
+.center-align-header{
   text-align: center;
   align-items: center;
   align-self: center;
@@ -263,6 +263,11 @@ input[type='radio'] {
   vertical-align: middle;
   justify-content: center;
   display: flex;
+}
+
+.center-align{
+  text-align: center;
+  
 }
 
 

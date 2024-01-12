@@ -48,12 +48,12 @@ const Guest = () => {
         
         try{
         
-        // const resp3 = await databases.getDocument(DATABASE_ID, 'candidates', 'uday');
+        const resp3 = await databases.getDocument(DATABASE_ID, 'candidates', 'uday');
         
-        // const resp4 = await databases.getDocument(DATABASE_ID,'candidates', 'tanzim');
+        const resp4 = await databases.getDocument(DATABASE_ID,'candidates', 'tanzim');
         
-        // setCnt1(resp3.count);
-        // setCnt2(resp4.count);
+        setCnt1(resp3.count);
+        setCnt2(resp4.count);
         setVoted(1)
         }
         catch (e)
@@ -79,9 +79,9 @@ const Guest = () => {
             (<>
                 <div className='message--header'>
                     <br></br>
-                    <div className='center-align'><img src={udayImage} width={sz} height={sz} alt="uday" /><h2>Uday</h2></div>
+                    <div className='center-align'><img src={udayImage} width={sz} height={sz} alt="uday" /><h2>Uday {cnt1}</h2></div>
                     
-                    <div className='center-align'><img src={tanzimImage} width={sz} height={sz} alt="tanzim" /><h2>Tanzim</h2></div>
+                    <div className='center-align'><img src={tanzimImage} width={sz} height={sz} alt="tanzim" /><h2>Tanzim {cnt2}</h2></div>
                     <br/>
                     <br/>
                     </div >

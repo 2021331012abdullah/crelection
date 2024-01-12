@@ -143,7 +143,7 @@ const Room = () => {
                 <br />
                 <p>✅ আপনি ইতোমধ্যে একবার ভোট দিয়েছেন</p></>): voted===0?
         (<div> <div >
-               <div style="display: flex; flex-direction: column;">  <h4>আগে ছবি তে ক্লিক করে তারপর ভোট দিন নিচের বাটন চাপলে আর পরিবর্তন করার সুযোগ থাকবে না</h4> </div>
+               <div>  <h4>আগে ছবি তে ক্লিক করে তারপর ভোট দিন নিচের বাটন চাপলে আর পরিবর্তন করার সুযোগ থাকবে না</h4> </div>
             <div className='message--header'>
             <label><input type='radio' name="favourite" value="uday" onChange={()=>{setChoice("uday"); }}></input><img src={udayImage} width={sz} height={sz} alt="uday" /></label>
             <label><input type='radio' name="favourite" value="tanzim" defaultChecked onChange={()=>{setChoice("tanzim");}}></input><img src={tanzimImage} width={sz} height={sz} alt="tanzim" /></label><br/>

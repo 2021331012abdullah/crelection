@@ -135,7 +135,7 @@ const Room = () => {
                     <br/>
                     </div >
                     <br/>
-                    <div className='center-align'>Final result will be announced after 10PM</div>
+                    <div className='center-align'>Result is Published!</div>
                     
                     
                     <br/>

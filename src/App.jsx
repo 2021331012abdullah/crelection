@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import PrivateRoutes from './utils/PrivateRoutes'
 import Room from './pages/Room'
 import LoginPage from './pages/LoginPage'
-import RegisterPage from './pages/RegisterPage'
 import { AuthProvider } from './utils/AuthContext'
 import Guest from './pages/guest'
 
@@ -22,7 +21,6 @@ function App() {
           <Routes>
               <Route path="/login" element={<LoginPage/>}/>
               <Route path="/guest" element={<Guest/>}/>
-              <Route path="/register" element={<RegisterPage/>}/>
                 <Route element={<PrivateRoutes/>}>
                     <Route path="/" element={<Room/>}/>
                 </Route>

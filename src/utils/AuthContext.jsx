@@ -5,6 +5,8 @@ import { ID} from 'appwrite';
 
 const AuthContext = createContext()
 
+
+
 export const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null)
@@ -47,38 +49,12 @@ export const AuthProvider = ({children}) => {
         setUser(null)
     }
 
-    const handleRegister = async (e, credentials) => {
-        e.preventDefault()
-        
-
-        if(credentials.password1 !== credentials.password2){
-            alert('Passwords did not match!')
-            return 
-        }
-
-        try{
-            
-            let response = await account.create(ID.unique(), credentials.email, credentials.password1, credentials.name);
-            
-
-            await account.createEmailSession(credentials.email, credentials.password1)
-            let accountDetails = await account.get();
-            setUser(accountDetails)
-            navigate('/')
-        }catch(error){
-
-            const ex=String(error)
-            
-            alert(ex.replace('AppwriteException: ', ''))
-            console.error(error)
-        }
-    }
+    
 
     const contextData = {
         user,
         handleUserLogin,
         handleLogout,
-        handleRegister
     }
 
     return(

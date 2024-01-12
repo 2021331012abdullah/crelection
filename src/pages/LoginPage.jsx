@@ -35,7 +35,7 @@ const LoginPage = () => {
       <div className="auth--container">
         
         <h1>CSE 21 CR Election</h1>
-        <h3>Santosh vs Sayeed</h3>
+        <h3>Uday vs Tanzim</h3>
         
           <div className="form--wrapper">
             <form onSubmit={(e) => {handleUserLogin(e, credentials)}}>
@@ -73,7 +73,6 @@ const LoginPage = () => {
 
                 </div>
             </form>
-            <p>Dont have an account? Register <Link to="/register">here</Link></p>
             <br/>
             <div className='center-align'><Link to="/guest"><h4>Continue as a guest</h4></Link></div>
             

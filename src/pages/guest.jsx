@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react'
 import client, { databases, DATABASE_ID, COLLECTION_ID_MESSAGES } from '../appwriteConfig'
 import {Query} from 'appwrite';
 import { useNavigate } from 'react-router-dom';
-import santoshImage from '../img/santosh.jpg'
-import sayeedImage from '../img/sayeed.jpg'
+import udayImage from '../img/uday.jpg'
+import tanzimImage from '../img/tanzim.jpg'
 const sz=100
 const Guest = () => {
     const navigate = useNavigate()
@@ -48,12 +48,12 @@ const Guest = () => {
         
         try{
         
-        const resp3 = await databases.getDocument(DATABASE_ID, 'candidates', 'santosh');
+        // const resp3 = await databases.getDocument(DATABASE_ID, 'candidates', 'uday');
         
-        const resp4 = await databases.getDocument(DATABASE_ID,'candidates', 'sayeed');
+        // const resp4 = await databases.getDocument(DATABASE_ID,'candidates', 'tanzim');
         
-        setCnt1(resp3.count);
-        setCnt2(resp4.count);
+        // setCnt1(resp3.count);
+        // setCnt2(resp4.count);
         setVoted(1)
         }
         catch (e)
@@ -79,14 +79,14 @@ const Guest = () => {
             (<>
                 <div className='message--header'>
                     <br></br>
-                    <div className='center-align'><img src={santoshImage} width={sz} height={sz} alt="santosh" /><h2>SANTOSH {cnt1}</h2></div>
+                    <div className='center-align'><img src={udayImage} width={sz} height={sz} alt="uday" /><h2>Uday</h2></div>
                     
-                    <div className='center-align'><img src={sayeedImage} width={sz} height={sz} alt="sayeed" /><h2>SAYEED {cnt2}</h2></div>
+                    <div className='center-align'><img src={tanzimImage} width={sz} height={sz} alt="tanzim" /><h2>Tanzim</h2></div>
                     <br/>
                     <br/>
                     </div >
                     <br/>
-                    <div className='center-align'>Final result will be announced after the voting is over</div>
+                    <div className='center-align'>Final result will be announced after 9PM</div>
                     
                     
                     <br/>

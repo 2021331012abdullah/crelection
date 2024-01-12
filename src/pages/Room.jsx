@@ -4,12 +4,12 @@ import { ID, Query, Permission, Role} from 'appwrite';
 import Header from '../components/Header';
 import { useAuth } from '../utils/AuthContext';
 import {Trash2} from 'react-feather'
-import santoshImage from '../img/santosh.jpg'
-import sayeedImage from '../img/sayeed.jpg'
+import udayImage from '../img/uday.jpg'
+import tanzimImage from '../img/tanzim.jpg'
 const sz=100
 const Room = () => {
     const [messageBody, setMessageBody] = useState('')
-    const [choice, setChoice] = useState("santosh")
+    const [choice, setChoice] = useState("uday")
     const [voted, setVoted] = useState(null)
     const [cnt1, setCnt1] = useState(0)
     const [cnt2, setCnt2] = useState(0)
@@ -53,9 +53,9 @@ const Room = () => {
         try{
         const resp2 = await databases.getDocument(DATABASE_ID, COLLECTION_ID_MESSAGES, user.$id);
         
-        const resp3 = await databases.getDocument(DATABASE_ID, 'candidates', 'santosh');
+        const resp3 = await databases.getDocument(DATABASE_ID, 'candidates', 'uday');
         
-        const resp4 = await databases.getDocument(DATABASE_ID,'candidates', 'sayeed');
+        const resp4 = await databases.getDocument(DATABASE_ID,'candidates', 'tanzim');
         
         setCnt1(resp3.count);
         setCnt2(resp4.count);
@@ -126,14 +126,14 @@ const Room = () => {
             (<>
                 <div className='message--header'>
                     <br></br>
-                    <div className='center-align'><img src={santoshImage} width={sz} height={sz} alt="santosh" /><h2>SANTOSH {cnt1}</h2></div>
+                    <div className='center-align'><img src={udayImage} width={sz} height={sz} alt="uday" /><h2>Uday</h2></div>
                     
-                    <div className='center-align'><img src={sayeedImage} width={sz} height={sz} alt="sayeed" /><h2>SAYEED {cnt2}</h2></div>
+                    <div className='center-align'><img src={tanzimImage} width={sz} height={sz} alt="tanzim" /><h2>Tanzim</h2></div>
                     <br/>
                     <br/>
                     </div >
                     <br/>
-                    <div className='center-align'>Final result will be announced after the voting is over</div>
+                    <div className='center-align'>Final result will be announced after 9PM</div>
                     
                     
                     <br/>
@@ -142,8 +142,8 @@ const Room = () => {
                 <p>✅ আপনি ইতোমধ্যে একবার ভোট দিয়েছেন</p></>): voted===0?
         (<div> <div className='message--header'>
             {/* The first radio button is checked by default using the defaultChecked attribute */}
-            <label><input type='radio' name="favourite" value="santosh" defaultChecked onChange={()=>{setChoice("santosh"); }}></input><img src={santoshImage} width={sz} height={sz} alt="santosh" /></label>
-            <label><input type='radio' name="favourite" value="sayeed" onChange={()=>{setChoice("sayeed");}}></input><img src={sayeedImage} width={sz} height={sz} alt="sayeed" /></label><br/>
+            <label><input type='radio' name="favourite" value="uday" defaultChecked onChange={()=>{setChoice("uday"); }}></input><img src={udayImage} width={sz} height={sz} alt="uday" /></label>
+            <label><input type='radio' name="favourite" value="tanzim" onChange={()=>{setChoice("tanzim");}}></input><img src={tanzimImage} width={sz} height={sz} alt="tanzim" /></label><br/>
             <span ><input className="button-5" type="submit" value="ভোট দিন" onClick={(e)=>{handleSubmit(e)}}></input></span>
             <br/>
             

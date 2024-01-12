@@ -86,7 +86,7 @@ const Guest = () => {
                     <br/>
                     </div >
                     <br/>
-                    <div className='center-align'>Final result will be announced after 9PM</div>
+                    <div className='center-align'>Final result will be announced after 10PM</div>
                     
                     
                     <br/>

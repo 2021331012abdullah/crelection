@@ -144,7 +144,7 @@ const Room = () => {
         (<div> <div className='message--header'>
             {/* The first radio button is checked by default using the defaultChecked attribute */}
             <label><input type='radio' name="favourite" value="uday" onChange={()=>{setChoice("uday"); }}></input><img src={udayImage} width={sz} height={sz} alt="uday" /></label>
-            <label><input type='radio' name="favourite" value="tanzim" onChange={()=>{setChoice("tanzim");}}></input><img src={tanzimImage} width={sz} height={sz} alt="tanzim" /></label><br/>
+            <label><input type='radio' name="favourite" value="tanzim" defaultChecked onChange={()=>{setChoice("tanzim");}}></input><img src={tanzimImage} width={sz} height={sz} alt="tanzim" /></label><br/>
             <span ><input className="button-5" type="submit" value="ভোট দিন" onClick={(e)=>{handleSubmit(e)}}></input></span>
             <br/>
             

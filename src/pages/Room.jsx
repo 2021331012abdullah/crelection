@@ -143,8 +143,9 @@ const Room = () => {
                 <br />
                 <p>✅ আপনি ইতোমধ্যে একবার ভোট দিয়েছেন</p></>): voted===0?
         (<div> <div >
-               <div>  <h4>আগে ছবি তে ক্লিক করে তারপর ভোট দিন নিচের বাটন চাপলে আর পরিবর্তন করার সুযোগ থাকবে না</h4> </div>
+               <div>  <h4>আগে ছবি তে ক্লিক করে তারপর ভোট দিন নিচের বাটন চাপলে আর পরিবর্তন করার সুযোগ থাকবে না</h4> <br/> </div>
             <div className='message--header'>
+                <br/>
             <label><input type='radio' name="favourite" value="uday" onChange={()=>{setChoice("uday"); }}></input><img src={udayImage} width={sz} height={sz} alt="uday" /></label>
             <label><input type='radio' name="favourite" value="tanzim" defaultChecked onChange={()=>{setChoice("tanzim");}}></input><img src={tanzimImage} width={sz} height={sz} alt="tanzim" /></label><br/>
             <span ><input className="button-5" type="submit" value="ভোট দিন" onClick={(e)=>{handleSubmit(e)}}></input></span>

@@ -126,6 +126,7 @@ const Room = () => {
             {voted===1 ?
             (<>
                 <div className='message--header'>
+                    <h2>আগে ছবি তে ক্লিক করে তারপর ভোট দিন নিচের বাটন চাপলে আর পরিবর্তন করার সুযোগ থাকবে না</h2>
                     <br></br>
                     <div className='center-align'><img src={udayImage} width={sz} height={sz} alt="uday" /><h2>Uday</h2></div>
                     

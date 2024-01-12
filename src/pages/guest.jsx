@@ -92,12 +92,7 @@ const Guest = () => {
                     <br/>
                     <div className='center-align'><div className="field--wrapper">
 
-<input 
-type="submit"
-value="Login to Vote"
-className="btn btn--lg btn--main"
-onClick={()=>{navigate('/login')}}
-/>
+
 
 </div></div>
                 

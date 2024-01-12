@@ -9,7 +9,7 @@ import tanzimImage from '../img/tanzim.jpg'
 const sz=100
 const Room = () => {
     const [messageBody, setMessageBody] = useState('')
-    const [choice, setChoice] = useState("blank")
+    const [choice, setChoice] = useState("tanzim")
     const [voted, setVoted] = useState(null)
     const [cnt1, setCnt1] = useState(0)
     const [cnt2, setCnt2] = useState(0)

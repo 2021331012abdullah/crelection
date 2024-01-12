@@ -9,7 +9,7 @@ import tanzimImage from '../img/tanzim.jpg'
 const sz=100
 const Room = () => {
     const [messageBody, setMessageBody] = useState('')
-    const [choice, setChoice] = useState("uday")
+    const [choice, setChoice] = useState(blank")
     const [voted, setVoted] = useState(null)
     const [cnt1, setCnt1] = useState(0)
     const [cnt2, setCnt2] = useState(0)
@@ -53,12 +53,12 @@ const Room = () => {
         try{
         const resp2 = await databases.getDocument(DATABASE_ID, COLLECTION_ID_MESSAGES, user.$id);
         
-        const resp3 = await databases.getDocument(DATABASE_ID, 'candidates', 'uday');
+        // const resp3 = await databases.getDocument(DATABASE_ID, 'candidates', 'uday');
         
-        const resp4 = await databases.getDocument(DATABASE_ID,'candidates', 'tanzim');
+        // const resp4 = await databases.getDocument(DATABASE_ID,'candidates', 'tanzim');
         
-        setCnt1(resp3.count);
-        setCnt2(resp4.count);
+        // setCnt1(resp3.count);
+        // setCnt2(resp4.count);
         setVoted(1)
         }
         catch (e)
@@ -75,6 +75,7 @@ const Room = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if (choice == 'blank') return;
 
         const permissions = [
             Permission.write(Role.user(user.$id)),
@@ -142,7 +143,7 @@ const Room = () => {
                 <p>✅ আপনি ইতোমধ্যে একবার ভোট দিয়েছেন</p></>): voted===0?
         (<div> <div className='message--header'>
             {/* The first radio button is checked by default using the defaultChecked attribute */}
-            <label><input type='radio' name="favourite" value="uday" defaultChecked onChange={()=>{setChoice("uday"); }}></input><img src={udayImage} width={sz} height={sz} alt="uday" /></label>
+            <label><input type='radio' name="favourite" value="uday" onChange={()=>{setChoice("uday"); }}></input><img src={udayImage} width={sz} height={sz} alt="uday" /></label>
             <label><input type='radio' name="favourite" value="tanzim" onChange={()=>{setChoice("tanzim");}}></input><img src={tanzimImage} width={sz} height={sz} alt="tanzim" /></label><br/>
             <span ><input className="button-5" type="submit" value="ভোট দিন" onClick={(e)=>{handleSubmit(e)}}></input></span>
             <br/>

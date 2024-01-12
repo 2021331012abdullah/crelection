@@ -86,18 +86,11 @@ const Guest = () => {
                     <br/>
                     </div >
                     <br/>
-                    <div className='center-align'>Final result will be announced after 10PM</div>
+                    <div className='center-align'>Result is Published!</div>
                     
                     
                     <br/>
                     <div className='center-align'><div className="field--wrapper">
-
-<input 
-type="submit"
-value="Login to Vote"
-className="btn btn--lg btn--main"
-onClick={()=>{navigate('/login')}}
-/>
 
 </div></div>
                 
